@@ -1,2 +1,2 @@
-# Py_snippets-questions
-## Clasiffied by theme...
+# Py_snippets&ans
+## Clasiffied by theme ans A{number}.
