@@ -1,0 +1,83 @@
+# Archivo de configuración del servidor SSH (sshd_config)
+
+# Puerto en el que escuchará el servidor SSH
+Port 22
+
+# Dirección IP o interfaz en la que escuchará el servidor
+ListenAddress 0.0.0.0
+ListenAddress ::
+
+# Número máximo de intentos fallidos de autenticación antes de desconectar
+MaxAuthTries 3
+
+# JM1
+SourceDirectory ..\SIMULADOR VIGENTE
+
+# jm2
+DestinationServer 10.0.16.95
+DestinationDirectory \Plantillas
+
+# Número máximo de logs a retener
+LogsRetained 10
+
+# Número máximo de intentos de conexión fallidos antes de bloquear al usuario
+MaxStartups 10:30:100
+
+# Tiempo de espera para la autenticación
+LoginGraceTime 120
+
+# Permitir la autenticación por contraseña
+PasswordAuthentication yes
+
+# Permitir la autenticación por clave pública
+PubkeyAuthentication yes
+
+# Permitir la autenticación por teclado-interactivo (como un código OTP)
+ChallengeResponseAuthentication no
+
+# Desactivar la autenticación mediante contraseña para usuarios específicos
+# (se recomienda usar claves públicas en su lugar para mayor seguridad)
+PasswordAuthentication no
+
+# Habilitar la autenticación de agente de SSH (para usar claves almacenadas en el agente SSH)
+UsePAM yes
+
+# Limitar el acceso solo a usuarios específicos
+AllowUsers usuario1 usuario2
+
+# Limitar el acceso a grupos específicos
+AllowGroups sshusers
+
+# Configurar el nombre de usuario por defecto para la conexión SSH
+# (el sistema utilizará este nombre si no se proporciona uno explícitamente)
+# PermitRootLogin no
+PermitRootLogin no
+
+# Habilitar el reenvío de X11 (para ejecutar aplicaciones gráficas de forma remota)
+X11Forwarding yes
+
+# Deshabilitar la reenvío de puertos de redirección para mayor seguridad
+AllowTcpForwarding yes
+
+# Deshabilitar la posibilidad de ejecutar comandos remotos
+# (puedes habilitarla si necesitas que los usuarios ejecuten comandos específicos)
+# ForceCommand /usr/bin/nologin
+
+# Registrar eventos de acceso y errores de SSH
+LogLevel VERBOSE
+
+# Configuración para el uso de claves RSA
+RSAAuthentication yes
+
+# Habilitar la detección de clientes SSH viejos
+StrictModes yes
+
+# Establecer un máximo de sesiones SSH permitidas por usuario
+MaxSessions 10
+
+# Evitar que los usuarios puedan realizar cambios en su entorno (ej. cambiar su directorio de trabajo)
+AllowUsers myuser
+
+# Forzar un cambio de contraseña después de un primer inicio de sesión
+# (configuración típica para recién administradores)
+ChrootDirectory /home/usuario
